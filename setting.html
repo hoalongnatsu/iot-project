@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+   <title>Home</title>
+</head>
+
+<body>
+
+   <!-- NAVBAR -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">IOT</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+         aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="/">Overview</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/statistic.html">Statistic</a>
+            </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav">
+               <li class="nav-item active">
+                  <a class="nav-link" href="/setting.html">
+                     <i class="fas fa-cog"></i> Setting</a>
+               </li>
+            </ul>
+         </form>
+      </div>
+   </nav>
+   <!-- END NAVBAR -->
+
+   <!-- CONTENT -->
+   <div class="container" style="margin-top: 20px;">
+      <div class="row">
+         <!-- SETTING CHART -->
+         <div class="col-md-6">
+            <!-- NUMBER POINT -->
+            <div class="allow row">
+               <h3 class="col-md-6">Number point : <span id="range-output"></span></h3>
+               <div class="col-md-5">
+                  <div class="slidecontainer">
+                     <input type="range" min="1" max="10" class="range" id="range-input">
+                  </div>
+               </div>
+            </div>
+            <!-- END NUMBER POINT -->
+            <div class="container">
+               <canvas id="chart" style="width: 100%; height: 400px; margin-top: 10px;"></canvas>
+            </div>
+            <form action="iot/api/setting/changenumberpoint" method="POST" id="change-point-form">
+               <input type="hidden" name="number_point">
+               <button type="submit" class="btn btn-primary" id="btn-change-point">Change</button>
+            </form>
+         </div>
+         <!-- END SETTING CHART -->
+         <div class="col-md-6 setting">
+            <!-- ALLOW -->
+            <div class="allow row">
+               <h3 class="col-md-10">Allow notification</h3>
+               <div class="col-md-2">
+                  <label class="switch">
+                     <input type="checkbox" id="btn-allow">
+                     <span class="slider round"></span>
+                  </label>
+               </div>
+            </div>
+            <!-- END ALLOW -->
+            <form action="iot/api/setting/editsetting" method="POST" id="setting-form">
+               <!-- INFO SETTING -->
+               <div class="info-setting row">
+                  <div class="col-md-12">
+                     <h5 class="header-setting">Setting notification</h5>
+                     <fieldset class="allow-update" disabled>
+                        <div class="form-row">
+                           <div class="col">
+                              <label>High Threshold Temperature</label>
+                              <input type="number" class="form-control" name="high_tem" step="any">
+                           </div>
+                           <div class="col">
+                              <label>Low Threshold Temperature</label>
+                              <input type="number" class="form-control" name="low_tem" step="any">
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="col">
+                              <label>High Threshold Turbidity</label>
+                              <input type="number" class="form-control" name="high_turb" step="any">
+                           </div>
+                           <div class="col">
+                              <label>Low Threshold Turbidity</label>
+                              <input type="number" class="form-control" name="low_turb" step="any">
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="col">
+                              <label>High Threshold PH</label>
+                              <input type="number" class="form-control" name="high_ph" step="any">
+                           </div>
+                           <div class="col">
+                              <label>Low Threshold PH</label>
+                              <input type="number" class="form-control" name="low_ph" step="any">
+                           </div>
+                        </div>
+                     </fieldset>
+                  </div>
+               </div>
+               <!-- END INFO SETTING -->
+               <!-- INFO USER -->
+               <div class="info-user row">
+                  <div class="col-md-12">
+                     <h5 class="header-setting">User Information </h5>
+                     <fieldset class="allow-update" disabled>
+                        <div class="form-row">
+                           <div class="col">
+                              <label>Phone</label>
+                              <input type="text" class="form-control" name="phone">
+                           </div>
+                           <div class="col">
+                              <label>Email</label>
+                              <input type="text" class="form-control" name="email">
+                           </div>
+                        </div>
+                     </fieldset>
+                  </div>
+               </div>
+               <!-- END INFO USER -->
+               <button type="submit" class="btn btn-primary" id="btn-setting">Edit</button>
+            </form>
+         </div>
+      </div>
+   </div>
+   <!--END CONTENT -->
+
+   <!-- JS -->
+   <script src="dist/setting.js"></script>
+   <!-- JS for bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

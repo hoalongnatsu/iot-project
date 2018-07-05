@@ -1,0 +1,244 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/*Home*/
+.highcharts-button, .highcharts-credits {
+	display: none;
+}
+.container .title {
+   text-align: center;
+   margin-top: 20px;
+}
+
+.tab-content {
+   border: 1px solid #e6e6e6;
+   border-top: none;
+}
+
+.camera {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.camera video {
+   width: 100%;
+}
+
+.chart {
+   display: flex;
+   flex-direction: column;
+}
+
+.chart canvas {
+   width: 100%;
+   height: 150px;
+}
+
+.current {
+   border: 1px solid #e6e6e6;
+   border-top: none;
+   border-bottom: none;
+}
+
+#turbidity .row, #temp .row, #ph .row {
+   border-bottom: 1px solid #e6e6e6;
+}
+
+#turbidity .row .col-sm-4, #temp .row .col-sm-4, #ph .row .col-sm-4 {
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: 500;
+}
+
+#turbidity .chart-turb, #temp .chart-temp, #ph .chart-ph {
+   margin: 0 auto;
+   width: 75%;
+}
+
+#container-loader {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.loader {
+   margin-top: 10px;
+   border: 16px solid #f3f3f3;
+   border-radius: 50%;
+   border-top: 16px solid #3498db;
+   width: 120px;
+   height: 120px;
+   -webkit-animation: spin 2s linear infinite; /* Safari */
+   animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.canvasjs-chart-credit {
+  display: none;
+}
+.chart canvas {
+  height: 210px;
+}
+
+/*Setting*/
+
+/*Switch*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*Range*/
+.slidecontainer {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* The slider itself */
+.range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+#range-output {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/*Allow*/
+.allow, .info-setting {
+  border-bottom: 1px solid #666;
+}
+.allow h3 {
+  height: 41px;
+}
+.allow-update {
+  margin-bottom: 20px;
+}
+
+.header-setting {
+  margin-top: 10px;
+  color: #52BE80;
+}
+
+.form-row {
+  margin-top: 10px;
+}
+
+#change-point-form {
+  display: none;
+  margin-top: 35px;
+  text-align: center;
+}
+
+#error-modal {
+  background: rgba(236, 112, 99, .5);
+}
+
+#error-modal .modal-content {
+  background: rgba(236, 112, 99, .6);
+  color: white;
+}
+
+#error-modal .modal-content .modal-header {
+  border-bottom: 0;
+}
+
+#error-modal .modal-content .modal-footer {
+  border-top: 0;
+}

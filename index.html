@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+   <title>Home</title>
+</head>
+<body>
+   
+   <!-- NAVBAR -->
+   <navbar></navbar>
+   <!-- END NAVBAR -->
+
+   <!-- CONTENT -->
+   <div class="container">
+      <h1 class="title">Monitoring Board</h1>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+         <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">OverView</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" id="turbidity-tab" data-toggle="tab" href="#turbidity" role="tab" aria-controls="turbidity" aria-selected="false">Turbidity</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" id="temp-tab" data-toggle="tab" href="#temp" role="tab" aria-controls="temp" aria-selected="false">Temperature</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" id="ph-tab" data-toggle="tab" href="#ph" role="tab" aria-controls="ph" aria-selected="false">PH</a>
+         </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+         <div class="tab-pane fade show active container" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+            <overview-table></overview-table>
+         </div>
+         <div class="tab-pane fade container" id="turbidity" role="tabpanel" aria-labelledby="turbidity-tab">
+            <turb-table></turb-table>
+         </div>
+         <div class="tab-pane fade container" id="temp" role="tabpanel" aria-labelledby="temp-tab">
+            <temp-table></temp-table>
+         </div>
+         <div class="tab-pane fade container" id="ph" role="tabpanel" aria-labelledby="ph-tab">
+            <ph-table></ph-table>
+         </div>
+      </div>
+   </div>
+   <!--END CONTENT -->
+
+   <!-- MODEL ERROR -->
+   <div class="modal fade" id="error-modal" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title text-uppercase" id="error-modal-title">Have some error</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body text-uppercase">
+               
+            </div>
+            <div class="modal-footer">
+               <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+               <button type="button" class="btn btn-outline-light btn-block">Confirm</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   
+   <!-- JS for bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+   <!-- JS -->
+   <script src="src/js/canvas.js"></script>
+   <script src="dist/home.js"></script>
+</body>
+</html>

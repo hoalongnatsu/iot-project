@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+   <title>Statistic</title>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">IOT</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+         aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="/">Overview</a>
+            </li>
+            <li class="nav-item active">
+               <a class="nav-link" href="/statistic.html">Statistic</a>
+            </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="/setting.html">
+                     <i class="fas fa-cog"></i> Setting</a>
+               </li>
+            </ul>
+         </form>
+      </div>
+   </nav>
+
+   <section id="inputData" class="py-3 bg-light">
+      <div class="container">
+         <div class="row">
+            <form action="iot/api/sesson/addsesson" style="width: 100%" id="form-sesson">
+               <div class="form-row">
+                  <div class="col-md-4">
+                     <div class="input-group">
+                        <div class="input-group-prepend">
+                           <div class="input-group-text">Start</div>
+                        </div>
+                        <input type="text" class="form-control" name="start_day" placeholder="DD/MM/YYYY" required>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="input-group">
+                        <div class="input-group-prepend">
+                           <div class="input-group-text">END</div>
+                        </div>
+                        <input type="text" class="form-control" name="end_day" placeholder="DD/MM/YYYY" required>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <button id="btn-submit" type="submit" class="btn btn-primary btn-block ladda-button" data-style="zoom-in"><span class="ladda-label"><i class="fas fa-plus"></i> Add Season</span></button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
+
+   <section id="listSeason" class="py-3">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="card text-center">
+                  <div class="card-header bg-success text-white py-2">
+                     <h5>Last Season</h5>
+                  </div>
+                  <div class="list-group list-season" id="list-tab" role="tablist">
+                     
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9">
+               <div class="tab-content content-season" id="nav-tabContent">
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- JS -->
+   <script src="src/js/canvas.js"></script>
+   <script src="dist/statistic.js"></script>
+   <!-- JS for bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
